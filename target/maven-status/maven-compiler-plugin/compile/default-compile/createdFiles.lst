@@ -1,0 +1,3 @@
+com\myq\mapper\EmployeeMapper.class
+com\myq\pojo\Employee.class
+com\myq\handler\MyMetaObjectHandle.class
