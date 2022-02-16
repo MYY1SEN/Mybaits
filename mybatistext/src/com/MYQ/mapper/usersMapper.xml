@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--suppress ALL -->
+<mapper namespace="com.MYQ.mapper.usersMapper">
+    <!--查询所有用户 resultType作用与查询-->
+    <select id="selectUserAll" resultType="com.MYQ.pojo.users">
+        select *
+        from users
+    </select>
+    <!--    根据用户id查询用户-->
+    <select id="selectUsersById" parameterType="int" resultType="com.MYQ.pojo.users">
+        select *
+        from users
+        where userid = #{suibian}
+    </select>
+    <!--    添加用户-->
+    <insert id="insertUsers">
+        insert into users value (default, #{username}, #{usersex})
+    </insert>
+    <!--    预更新用户查询-->
+    <select id="selectUserById2" parameterType="int" resultType="com.MYQ.pojo.users">
+        select *
+        from users
+        where userid = #{userid};
+    </select>
+    <!--    更新用户-->
+    <update id="updateUserById">
+        update users
+        set username = #{username},
+            usersex= #{usersex}
+        where userid = #{userid}
+    </update>
+<!--    删除用户-->
+    <delete id="deleteUsers" >
+        delete from users where userid = #{userid}
+    </delete>
+</mapper>
